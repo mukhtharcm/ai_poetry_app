@@ -111,7 +111,9 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
     );
 
     try {
-      var pb = PocketBase('http://localhost:8090');
+      var pocketbaseUrl = 'https://aipgb.76545689.xyz';
+      // var pocketbaseUrl = 'http://localhost:8090';
+      var pb = PocketBase(pocketbaseUrl);
 
       var data = await pb.send(
         '/api/poetry',
