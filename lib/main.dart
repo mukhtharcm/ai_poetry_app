@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:pocketbase/pocketbase.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 void main() {
   runApp(const MyApp());
@@ -172,7 +173,11 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
                     _poemTitle,
                     style: Theme.of(context).textTheme.headlineMedium,
                     textAlign: TextAlign.center,
-                  ),
+                  ).animate().fadeIn(duration: 600.ms).scale(
+                      begin: const Offset(0.8, 0.8),
+                      end: const Offset(1, 1),
+                      duration: 600.ms,
+                      curve: Curves.easeOutQuad),
                   const SizedBox(height: 24),
                   Expanded(
                     child: SingleChildScrollView(
@@ -181,7 +186,15 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
                         _generatedPoem,
                         style: Theme.of(context).textTheme.bodyLarge,
                         textAlign: TextAlign.center,
-                      ),
+                      )
+                          .animate()
+                          .fadeIn(duration: 1000.ms, delay: 300.ms)
+                          .slideY(
+                              begin: 0.2,
+                              end: 0,
+                              duration: 800.ms,
+                              delay: 300.ms,
+                              curve: Curves.easeOutQuad),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -189,7 +202,12 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
                     onPressed: () => Navigator.of(context).pop(),
                     icon: const Icon(Icons.close),
                     label: const Text('Close this poetic masterpiece'),
-                  ),
+                  ).animate().fadeIn(duration: 600.ms, delay: 800.ms).slideY(
+                      begin: 0.2,
+                      end: 0,
+                      duration: 600.ms,
+                      delay: 800.ms,
+                      curve: Curves.easeOutQuad),
                 ],
               ),
             );
@@ -203,7 +221,14 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title)
+            .animate()
+            .fadeIn(duration: 600.ms, curve: Curves.easeOutQuad)
+            .slideX(
+                begin: -0.2,
+                end: 0,
+                duration: 600.ms,
+                curve: Curves.easeOutQuad),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -226,7 +251,12 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
                   fillColor:
                       Theme.of(context).colorScheme.surfaceContainerHighest,
                 ),
-              ),
+              ).animate().fadeIn(duration: 600.ms, delay: 200.ms).slideY(
+                  begin: 0.2,
+                  end: 0,
+                  duration: 600.ms,
+                  delay: 200.ms,
+                  curve: Curves.easeOutQuad),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
                 value: _selectedPoetryType,
@@ -250,7 +280,12 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
                     _selectedPoetryType = newValue!;
                   });
                 },
-              ),
+              ).animate().fadeIn(duration: 600.ms, delay: 400.ms).slideY(
+                  begin: 0.2,
+                  end: 0,
+                  duration: 600.ms,
+                  delay: 400.ms,
+                  curve: Curves.easeOutQuad),
               const SizedBox(height: 24),
               ElevatedButton.icon(
                 onPressed: _isLoading ? null : _generatePoem,
@@ -259,7 +294,12 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-              ),
+              ).animate().fadeIn(duration: 600.ms, delay: 600.ms).scale(
+                  begin: const Offset(0.8, 0.8),
+                  end: const Offset(1, 1),
+                  duration: 600.ms,
+                  delay: 600.ms,
+                  curve: Curves.elasticOut),
             ],
           ),
         ),
