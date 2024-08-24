@@ -111,7 +111,7 @@ class _PoetryGeneratorPageState extends State<PoetryGeneratorPage>
     );
 
     try {
-      var pocketbaseUrl = 'https://aipgb.76545689.xyz';
+      var pocketbaseUrl = 'https://ai-poetry-generator.fly.dev';
       // var pocketbaseUrl = 'http://localhost:8090';
       var pb = PocketBase(pocketbaseUrl);
 
